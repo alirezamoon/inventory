@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Button } from '@chakra-ui/button'
 import Home from './components/home'
 import Layout from './components/hoc/layout'
+import { useSelector } from 'react-redux'
 
 function App() {
   return (

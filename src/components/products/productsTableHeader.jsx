@@ -11,10 +11,10 @@ const ProdutctsTableHeader = () => {
       color="white"
       borderTopRadius="8px"
     >
+      <Text w="50px">ردیف</Text>
       <Text w="150px">نام</Text>
+      <Text w="150px">تعداد</Text>
       <Text w="150px">قیمت</Text>
-      <Text w="150px">تخفیف</Text>
-      <Text w="150px">شرکت</Text>
       <Text w="150px">ویرایش</Text>
       <Text w="150px">حذف</Text>
     </Flex>

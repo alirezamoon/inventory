@@ -5,16 +5,20 @@ import App from './App'
 import reportWebVitals from './reportWebVitals'
 import { ChakraProvider } from '@chakra-ui/react'
 import Layout from './components/hoc/layout'
+import { Provider } from 'react-redux'
+import { store } from './store/store'
 
 ReactDOM.render(
   <React.StrictMode>
     <ChakraProvider>
-      <link
-        href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v29.1.0/dist/font-face.css"
-        rel="stylesheet"
-        type="text/css"
-      />
-      <App />
+      <Provider store={store}>
+        <link
+          href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v29.1.0/dist/font-face.css"
+          rel="stylesheet"
+          type="text/css"
+        />
+        <App />
+      </Provider>
     </ChakraProvider>
   </React.StrictMode>,
   document.getElementById('root')

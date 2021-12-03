@@ -1,15 +1,20 @@
 import { Button } from '@chakra-ui/button'
 import { Flex, Text } from '@chakra-ui/layout'
-import ProductsTable from '../productsTable'
+import { useDisclosure } from '@chakra-ui/react'
+import ProductsTable from '../products'
 import Search from './../toolbar/search'
+import AddProductModal from './../products/addProductModal'
+
 const Home = () => {
+  const { isOpen, onClose, onOpen } = useDisclosure()
   return (
     <Flex flexDir="column">
       <Flex justifyContent="space-between" w="100%" alignItems="center">
-        <Button>افزودن</Button>
+        <Button onClick={onOpen}>افزودن</Button>
         <Search />
       </Flex>
       <ProductsTable />
+      <AddProductModal isOpen={isOpen} onOpen={onOpen} onClose={onClose} />
     </Flex>
   )
 }

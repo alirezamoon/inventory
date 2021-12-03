@@ -5,6 +5,8 @@ export const products = [
     price: '3000',
     off: '2',
     company: 'Apple',
+    numberOfProducts: '5',
+    image: '',
   },
   {
     id: '2',
@@ -12,6 +14,8 @@ export const products = [
     price: '2500',
     off: '2',
     company: 'Apple',
+    numberOfProducts: '5',
+    image: '',
   },
   {
     id: '3',
@@ -19,6 +23,8 @@ export const products = [
     price: '2000',
     off: '0',
     company: 'Apple',
+    numberOfProducts: '5',
+    image: '',
   },
   {
     id: '4',
@@ -26,6 +32,8 @@ export const products = [
     price: '1900',
     off: '5',
     company: 'Apple',
+    numberOfProducts: '5',
+    image: '',
   },
   {
     id: '5',
@@ -33,6 +41,8 @@ export const products = [
     price: '3000',
     off: '0',
     company: 'Samsung',
+    numberOfProducts: '5',
+    image: '',
   },
   {
     id: '6',
@@ -40,6 +50,8 @@ export const products = [
     price: '1500',
     off: '3',
     company: 'Xiaomi',
+    numberOfProducts: '5',
+    image: '',
   },
   {
     id: '7',
@@ -47,6 +59,8 @@ export const products = [
     price: '1700',
     off: '0',
     company: 'Xiaomi',
+    numberOfProducts: '5',
+    image: '',
   },
   {
     id: '8',
@@ -54,6 +68,8 @@ export const products = [
     price: '1300',
     off: '10',
     company: 'Huawei',
+    numberOfProducts: '5',
+    image: '',
   },
   {
     id: '9',
@@ -61,6 +77,8 @@ export const products = [
     price: '2400',
     off: '15',
     company: 'Samsung',
+    numberOfProducts: '5',
+    image: '',
   },
   {
     id: '10',
@@ -68,5 +86,7 @@ export const products = [
     price: '500',
     off: '15',
     company: 'Huawei',
+    numberOfProducts: '5',
+    image: '',
   },
 ]

@@ -3,7 +3,15 @@ import Icon from '@chakra-ui/icon'
 import { Flex, Text } from '@chakra-ui/layout'
 import { Delete, Edit } from 'react-iconly'
 
-const Product = ({ id, name, price, off, company }) => {
+const Product = ({
+  id,
+  name,
+  price,
+  off,
+  company,
+  count,
+  numberOfProducts,
+}) => {
   return (
     <Flex
       flexDir="row-reverse"
@@ -12,12 +20,12 @@ const Product = ({ id, name, price, off, company }) => {
       alignItems="center"
       h="50px"
     >
+      <Text w="50px">{count + 1}</Text>
       <Text w="150px" fontWeight="bold">
         {name}
       </Text>
-      <Text w="150px">{price}</Text>
-      <Text w="150px">{off == '0' ? 'ندارد' : off + '%'}</Text>
-      <Text w="150px">{company}</Text>
+      <Text w="150px">{numberOfProducts}</Text>
+      <Text w="150px">{price} $</Text>
       <Icon
         fontSize="20px"
         color="#3182CE"
