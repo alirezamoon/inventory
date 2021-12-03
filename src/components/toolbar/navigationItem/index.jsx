@@ -13,19 +13,27 @@ const NavigationItem = ({ text, to }) => {
     <Flex
       as={NavLink}
       to={to}
-      _hover={{ bgColor: '#F7FAFC' }}
+      _hover={{
+        bgColor: { base: '#3182CE', md: '#F7FAFC' },
+        color: { base: '#fff', md: '#000' },
+      }}
       h="100%"
       alignItems="center"
-      w="80px"
+      w={{ base: '100%', md: '80px' }}
       justifyContent="center"
       cursor="pointer"
-      borderBottom={activeItem ? '5px solid #3182CE' : '0'}
+      borderBottom={{ base: '0', md: activeItem ? '5px solid #3182CE' : '0' }}
       // borderTop={activeItem ? '2px solid #3182CE' : '0'}
       // borderLeft={activeItem ? '2px solid #3182CE' : '0'}
       // borderRight={activeItem ? '2px solid #3182CE' : '0'}
-      bgColor={activeItem ? '#F7FAFC' : '#fff'}
-      pb={activeItem ? '2px' : '0'}
-      // borderTopRadius="10px"
+      bgColor={{
+        base: activeItem ? '#3182CE' : '#fff',
+        md: activeItem ? '#F7FAFC' : '#fff',
+      }}
+      pb={{ base: '0', md: activeItem ? '2px' : '0' }}
+      mb={{ base: '5px', md: '0' }}
+      color={{ base: activeItem ? '#fff' : '#000', md: '#000' }}
+      borderRadius={{ base: '10px', md: '0' }}
       // zIndex="20"
       // boxShadow={activeItem ? '0 30px 0 #F7FAFC' : '0'}
     >
