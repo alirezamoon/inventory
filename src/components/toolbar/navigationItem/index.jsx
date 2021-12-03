@@ -1,6 +1,6 @@
 import { Flex, Text } from '@chakra-ui/react'
 import { NavLink } from 'react-router-dom'
-import { useLocation, useParams } from 'react-router'
+import { useLocation } from 'react-router'
 import { aboutUs, home } from '../../../constants'
 const NavigationItem = ({ text, to }) => {
   const location = useLocation()

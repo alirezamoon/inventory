@@ -20,6 +20,7 @@ const Layout = ({ children }) => {
           borderRadius="20px"
           p="20px"
           boxShadow="0 0 5px #eee"
+          flexDir="column"
         >
           {children}
         </Flex>
