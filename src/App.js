@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from './logo.svg'
+import './App.css'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { Button } from '@chakra-ui/button'
+import Home from './components/home'
+import Layout from './components/hoc/layout'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/addProduct" element={<Home />} />
+            <Route path="/about" element={<Home />} />
+            {/* <Route /> */}
+          </Routes>
+        </Layout>
+      </BrowserRouter>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
