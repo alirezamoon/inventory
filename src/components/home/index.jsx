@@ -1,7 +1,7 @@
 import { Button } from '@chakra-ui/button'
 import { Flex, Text } from '@chakra-ui/layout'
 import { useDisclosure } from '@chakra-ui/react'
-import ProductsTable from '../products'
+import Products from '../products'
 import Search from './../toolbar/search'
 import AddProductModal from './../products/addProductModal'
 
@@ -13,7 +13,7 @@ const Home = () => {
         <Button onClick={onOpen}>افزودن</Button>
         <Search />
       </Flex>
-      <ProductsTable />
+      <Products />
       <AddProductModal isOpen={isOpen} onOpen={onOpen} onClose={onClose} />
     </Flex>
   )

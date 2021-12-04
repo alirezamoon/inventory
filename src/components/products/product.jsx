@@ -20,29 +20,69 @@ const Product = ({
       alignItems="center"
       h="50px"
     >
-      <Text w="50px">{count + 1}</Text>
-      <Text w="150px" fontWeight="bold">
+      <Text
+        minW={{ base: '30px', md: '50px' }}
+        overflow="hidden"
+        textOverflow="ellipsis"
+        whiteSpace="nowrap"
+      >
+        {count + 1}
+      </Text>
+      <Text
+        w="150px"
+        minW="100px"
+        fontWeight="bold"
+        overflow="hidden"
+        textOverflow="ellipsis"
+        whiteSpace="nowrap"
+      >
         {name}
       </Text>
-      <Text w="150px">{numberOfProducts}</Text>
-      <Text w="150px">{price} $</Text>
-      <Icon
-        fontSize="20px"
-        color="#3182CE"
-        cursor="pointer"
-        w="150px"
-        as={Edit}
-      />
-      <Icon
-        fontSize="20px"
-        color="#3182CE"
-        cursor="pointer"
-        w="150px"
-        as={Delete}
-      />
-      <Button variant="link" flexGrow={1} color="#3182CE">
-        مشاهده بیشتر
-      </Button>
+      <Text
+        minW="50px"
+        overflow="hidden"
+        textOverflow="ellipsis"
+        whiteSpace="nowrap"
+        d={{ base: 'none', md: 'block' }}
+      >
+        {numberOfProducts}
+      </Text>
+      <Text
+        minW="150px"
+        overflow="hidden"
+        textOverflow="ellipsis"
+        whiteSpace="nowrap"
+        d={{ base: 'none', md: 'block' }}
+      >
+        {price} $
+      </Text>
+      <Flex flexGrow={1} flexDir="row-reverse" justifyContent="start">
+        <Icon
+          fontSize="20px"
+          color="#777"
+          cursor="pointer"
+          minW="50px"
+          as={Edit}
+        />
+        <Icon
+          fontSize="20px"
+          color="#f00"
+          cursor="pointer"
+          minW="50px"
+          as={Delete}
+        />
+        <Button
+          variant="link"
+          minW="62px"
+          maxW="150px"
+          w="100%"
+          color="#3182CE"
+          fontSize={{ base: '12px', sm: '14', md: 'unset' }}
+          _focus={{ outline: 0 }}
+        >
+          بیشتر
+        </Button>
+      </Flex>
     </Flex>
   )
 }

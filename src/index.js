@@ -17,6 +17,7 @@ ReactDOM.render(
           rel="stylesheet"
           type="text/css"
         />
+
         <App />
       </Provider>
     </ChakraProvider>

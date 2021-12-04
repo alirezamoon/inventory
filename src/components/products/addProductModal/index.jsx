@@ -7,10 +7,22 @@ import {
   Input,
   Button,
   Image,
+  Box,
 } from '@chakra-ui/react'
 import { useRef, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { addProduct } from '../../../store/features/productSlice'
+import { useFormik } from 'formik'
+import * as Yup from 'yup'
+import MyInput from '../../ui/input'
+
+const addProductSchema = Yup.object().shape({
+  name: Yup.string().required('نام را وارد کنید'),
+  company: Yup.string().required('نام شرکت را وارد کنید'),
+  price: Yup.string().required('قیمت محصول را وارد کنید'),
+  numberOfProducts: Yup.string().required('تعداد محصولات را وارد کنید'),
+  off: Yup.string().required('تخفیف را وارد کنید'),
+})
 
 const AddProductModal = ({ isOpen, onClose }) => {
   const inputRef = useRef()
@@ -24,28 +36,65 @@ const AddProductModal = ({ isOpen, onClose }) => {
     company: '',
     numberOfProducts: '',
     off: '',
-    image: '',
   })
-  console.log(newProduct)
+  const { v4: uuidv4 } = require('uuid')
+  // const lengthErr = 'You sho'
+
+  const formik = useFormik({
+    initialValues: {
+      name: '',
+      company: '',
+      price: '',
+      numberOfProducts: '1',
+      off: '0',
+    },
+    onSubmit: (values) => {
+      // alert(JSON.stringify(values, null, 2))
+      // console.log(values)
+      dispatch(
+        addProduct({
+          name: formik.values.name,
+          company: formik.values.company,
+          price: formik.values.price,
+          numberOfProducts: formik.values.numberOfProducts,
+          off: formik.values.off,
+          image: imgURL,
+          id: uuidv4(),
+        })
+      )
+    },
+    validationSchema: addProductSchema,
+  })
+
   return (
     <Modal isOpen={isOpen} onClose={onClose} isCentered>
       <ModalOverlay />
       <ModalContent borderRadius="10px">
-        <Flex flexDir="column" p="20px">
+        <Flex
+          as="form"
+          flexDir="column"
+          p="20px"
+          onSubmit={(e) => {
+            e.preventDefault()
+            formik.handleSubmit()
+          }}
+        >
           <Flex justifyContent="space-between">
             <Flex
               w="150px"
               h="150px"
               justifyContent="center"
               alignItems="center"
-              border="2px solid #3182CE"
+              border="2px dashed #3182CE"
               borderRadius="8px"
               cursor="pointer"
               onClick={() => inputRef.current.click()}
               overflow="hidden"
             >
               {imgURL.length == 0 ? (
-                <Text>+</Text>
+                <Text fontSize="48px" color="#3182CE">
+                  +
+                </Text>
               ) : (
                 <Image w="150px" h="150px" src={imgURL} objectFit="cover" />
               )}
@@ -64,51 +113,70 @@ const AddProductModal = ({ isOpen, onClose }) => {
               }}
             />
             <Flex flexDir="column" justifyContent="space-around">
-              <Input
-                placeholder="نام محصول"
-                dir="rtl"
-                onChange={(event) =>
-                  setNewProduct({ ...newProduct, name: event.target.value })
-                }
+              <MyInput
+                name="name"
+                label="نام"
+                errorText={formik.errors.name}
+                isInvalid={formik.errors.name ? true : false}
+                // placeholder={}
+                value={formik.values.name}
+                onChange={(e) => formik.handleChange(e)}
               />
-              <Input
-                placeholder="شرکت"
-                dir="rtl"
-                onChange={(event) =>
-                  setNewProduct({ ...newProduct, company: event.target.value })
-                }
+              <MyInput
+                name="company"
+                label="نام شرکت"
+                errorText={formik.errors.company}
+                isInvalid={formik.errors.company ? true : false}
+                value={formik.values.company}
+                onChange={(e) => formik.handleChange(e)}
               />
             </Flex>
           </Flex>
           <Flex flexDir="row-reverse" mt="20px">
-            <Input
-              placeholder="قیمت"
-              onChange={(event) =>
-                setNewProduct({ ...newProduct, price: event.target.value })
-              }
+            <MyInput
+              name="price"
+              label="قیمت"
+              errorText={formik.errors.price}
+              isInvalid={formik.errors.price ? true : false}
+              value={formik.values.price}
+              onChange={(e) => formik.handleChange(e)}
+              ltr
+              hasIcon
+              icon="$"
             />
-            <Input
-              mr="20px"
-              placeholder="تخفیف"
-              onChange={(event) =>
-                setNewProduct({ ...newProduct, off: event.target.value })
-              }
+
+            <MyInput
+              name="off"
+              label="تخفیف"
+              errorText={formik.errors.off}
+              isInvalid={formik.errors.off ? true : false}
+              value={formik.values.off}
+              onChange={(e) => formik.handleChange(e)}
+              ltr
+              mr="15px"
+              hasIcon
+              icon="%"
             />
-            <Input
-              mr="20px"
-              placeholder="تعداد"
-              onChange={(event) =>
-                setNewProduct({
-                  ...newProduct,
-                  numberOfProducts: event.target.value,
-                })
-              }
+
+            <MyInput
+              name="numberOfProducts"
+              label="تعداد"
+              errorText={formik.errors.numberOfProducts}
+              isInvalid={formik.errors.numberOfProducts ? true : false}
+              value={formik.values.numberOfProducts}
+              onChange={(e) => formik.handleChange(e)}
+              ltr
+              mr="15px"
             />
           </Flex>
           <Button
             colorScheme="blue"
             mt="20px"
-            onClick={() => dispatch(addProduct(newProduct))}
+            // onClick={() => {
+            //   dispatch(addProduct(newProduct))
+            //   setNewProduct({ ...newProduct, id: uuidv4() })
+            // }}
+            type="submit"
           >
             افزودن محصول
           </Button>
