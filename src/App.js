@@ -5,6 +5,7 @@ import { Button } from '@chakra-ui/button'
 import Home from './components/home'
 import Layout from './components/hoc/layout'
 import { useSelector } from 'react-redux'
+import ProductPage from './components/productPage'
 
 function App() {
   return (
@@ -13,8 +14,10 @@ function App() {
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/addProduct" element={<Home />} />
             <Route path="/about" element={<Home />} />
+            <Route path="/product" element={<ProductPage />}>
+              <Route path=":productId" element={<ProductPage />} />
+            </Route>
             {/* <Route /> */}
           </Routes>
         </Layout>

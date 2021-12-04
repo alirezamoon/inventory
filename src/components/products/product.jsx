@@ -1,7 +1,12 @@
 import { Button } from '@chakra-ui/button'
+import { useDisclosure } from '@chakra-ui/hooks'
 import Icon from '@chakra-ui/icon'
 import { Flex, Text } from '@chakra-ui/layout'
 import { Delete, Edit } from 'react-iconly'
+import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { getOneProduct } from '../../store/features/productSlice'
+import DeleteProductModal from './deleteProductModal'
 
 const Product = ({
   id,
@@ -12,10 +17,19 @@ const Product = ({
   count,
   numberOfProducts,
 }) => {
+  const navigate = useNavigate()
+  // console.log(navigate)
+  const dispatch = useDispatch()
+  const {
+    isOpen: isDeleteOpen,
+    onClose: onDeleteClose,
+    onOpen: onDeleteOpen,
+  } = useDisclosure()
+
   return (
     <Flex
       flexDir="row-reverse"
-      bgColor={id % 2 === 1 ? '#F7FAFC' : '#fff'}
+      bgColor={count % 2 === 1 ? '#F7FAFC' : '#fff'}
       justifyContent="end"
       alignItems="center"
       h="50px"
@@ -70,6 +84,7 @@ const Product = ({
           cursor="pointer"
           minW="50px"
           as={Delete}
+          onClick={onDeleteOpen}
         />
         <Button
           variant="link"
@@ -79,10 +94,19 @@ const Product = ({
           color="#3182CE"
           fontSize={{ base: '12px', sm: '14', md: 'unset' }}
           _focus={{ outline: 0 }}
+          onClick={() => {
+            // dispatch(getOneProduct(id))
+            navigate(`product/${id}`)
+          }}
         >
           بیشتر
         </Button>
       </Flex>
+      <DeleteProductModal
+        isOpen={isDeleteOpen}
+        onClose={onDeleteClose}
+        id={id}
+      />
     </Flex>
   )
 }
