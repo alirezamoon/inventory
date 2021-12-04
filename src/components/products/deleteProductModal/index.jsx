@@ -1,14 +1,24 @@
 import { Button } from '@chakra-ui/button'
 import { Flex, Heading, Text } from '@chakra-ui/layout'
 import { Modal, ModalContent, ModalOverlay } from '@chakra-ui/modal'
+import { useToast } from '@chakra-ui/react'
 import { useDispatch } from 'react-redux'
 import { deleteProduct } from '../../../store/features/productSlice'
 
 const DeleteProductModal = ({ isOpen, onClose, id }) => {
   const dispatch = useDispatch()
+  const toast = useToast()
   const deleteProductHandler = () => {
     onClose()
     dispatch(deleteProduct(id))
+    toast({
+      title: 'حذف محصول',
+      description: 'محصول مورد نظر با موفقیت حذف گردید',
+      status: 'success',
+      duration: 3000,
+      isClosable: true,
+      position: 'bottom-right',
+    })
   }
   return (
     <Modal isCentered isOpen={isOpen} onClose={onClose}>

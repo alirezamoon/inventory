@@ -9,6 +9,7 @@ import {
   Image,
   Box,
   Tooltip,
+  useToast,
 } from '@chakra-ui/react'
 import { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -20,6 +21,7 @@ import {
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import MyInput from '../../ui/input'
+import MyNumberInput from '../../ui/numberInput'
 
 const EditProductModal = ({ isOpen, onClose, id }) => {
   const dispatch = useDispatch()
@@ -50,6 +52,18 @@ const EditProductModal = ({ isOpen, onClose, id }) => {
     })
   }, [product])
   const inputRef = useRef()
+
+  const [number, setNumber] = useState(numberOfProducts)
+
+  useEffect(() => {
+    setNewProduct({
+      ...newProduct,
+      numberOfProducts: number,
+    })
+  }, [number])
+
+  const toast = useToast()
+
   return (
     <Modal isOpen={isOpen} onClose={onClose} isCentered>
       <ModalOverlay />
@@ -141,19 +155,12 @@ const EditProductModal = ({ isOpen, onClose, id }) => {
               hasIcon
               icon="%"
             />
-
-            <MyInput
-              name="numberOfProducts"
+            <MyNumberInput
+              value={number}
+              setValue={setNumber}
               label="تعداد"
-              value={newProduct.numberOfProducts}
-              onChange={(e) =>
-                setNewProduct({
-                  ...newProduct,
-                  numberOfProducts: e.target.value,
-                })
-              }
-              ltr
               mr="15px"
+              defaultValue={number}
             />
           </Flex>
           <Button
@@ -169,6 +176,14 @@ const EditProductModal = ({ isOpen, onClose, id }) => {
             onClick={() => {
               dispatch(editProduct(newProduct))
               onClose()
+              toast({
+                title: 'ویرایش محصول',
+                description: 'محصول با موفقیت ویرایش شد',
+                status: 'success',
+                duration: 3000,
+                isClosable: true,
+                position: 'bottom-right',
+              })
             }}
           >
             ویرایش

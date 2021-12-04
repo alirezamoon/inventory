@@ -7,8 +7,8 @@ import {
   Input,
   Button,
   Image,
-  Box,
   Tooltip,
+  useToast,
 } from '@chakra-ui/react'
 import { useRef, useState } from 'react'
 import { useDispatch } from 'react-redux'
@@ -16,17 +16,18 @@ import { addProduct } from '../../../store/features/productSlice'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import MyInput from '../../ui/input'
+import MyNumberInput from '../../ui/numberInput'
 
 const addProductSchema = Yup.object().shape({
   name: Yup.string().required('نام را وارد کنید'),
   company: Yup.string().required('نام شرکت را وارد کنید'),
   price: Yup.string().required('قیمت محصول را وارد کنید'),
-  numberOfProducts: Yup.string().required('تعداد محصولات را وارد کنید'),
   off: Yup.string().required('تخفیف را وارد کنید'),
 })
 
 const AddProductModal = ({ isOpen, onClose }) => {
   const inputRef = useRef()
+  const [number, setNumber] = useState(1)
   const [img, setImg] = useState('')
   const [imgURL, setImgURL] = useState('')
   const dispatch = useDispatch()
@@ -39,35 +40,38 @@ const AddProductModal = ({ isOpen, onClose }) => {
     off: '',
   })
   const { v4: uuidv4 } = require('uuid')
-  // const lengthErr = 'You sho'
-
+  const toast = useToast()
   const formik = useFormik({
     initialValues: {
       name: '',
       company: '',
       price: '',
-      numberOfProducts: '1',
       off: '0',
     },
     onSubmit: (values) => {
-      // alert(JSON.stringify(values, null, 2))
-      // console.log(values)
       dispatch(
         addProduct({
           name: formik.values.name,
           company: formik.values.company,
           price: formik.values.price,
-          numberOfProducts: formik.values.numberOfProducts,
           off: formik.values.off,
+          numberOfProducts: number,
           image: imgURL,
           id: uuidv4(),
         })
       )
       onClose()
+      toast({
+        title: 'افزودن محصول',
+        description: 'محصول با موفقیت اضافه شد',
+        status: 'success',
+        duration: 3000,
+        isClosable: true,
+        position: 'bottom-right',
+      })
       formik.values.name = ''
       formik.values.company = ''
       formik.values.price = ''
-      formik.values.numberOfProducts = '1'
       formik.values.off = '0'
       setImgURL('')
     },
@@ -130,7 +134,6 @@ const AddProductModal = ({ isOpen, onClose }) => {
                 label="نام"
                 errorText={formik.errors.name}
                 isInvalid={formik.errors.name ? true : false}
-                // placeholder={}
                 value={formik.values.name}
                 onChange={(e) => formik.handleChange(e)}
               />
@@ -169,27 +172,14 @@ const AddProductModal = ({ isOpen, onClose }) => {
               hasIcon
               icon="%"
             />
-
-            <MyInput
-              name="numberOfProducts"
+            <MyNumberInput
+              value={number}
+              setValue={setNumber}
               label="تعداد"
-              errorText={formik.errors.numberOfProducts}
-              isInvalid={formik.errors.numberOfProducts ? true : false}
-              value={formik.values.numberOfProducts}
-              onChange={(e) => formik.handleChange(e)}
-              ltr
               mr="15px"
             />
           </Flex>
-          <Button
-            colorScheme="blue"
-            mt="20px"
-            // onClick={() => {
-            //   dispatch(addProduct(newProduct))
-            //   setNewProduct({ ...newProduct, id: uuidv4() })
-            // }}
-            type="submit"
-          >
+          <Button colorScheme="blue" mt="20px" type="submit">
             افزودن محصول
           </Button>
         </Flex>
