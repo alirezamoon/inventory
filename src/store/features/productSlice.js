@@ -19,21 +19,19 @@ export const productsSlice = createSlice({
       )[0]
     },
     deleteProduct: (state, action) => {
-      // state.products = state.products.reduce((obj, product) => {
-      //   if (product.id != action.payload) {
-      //     obj.push(product)
-      //   }
-      //   return obj
-      // }, [])
-      let newProducts = state.products.filter(
+      state.products = state.products.filter(
         (product) => product.id !== action.payload
       )
-      console.log(newProducts)
-      state.products = newProducts
+    },
+    editProduct: (state, action) => {
+      const products = state.products.filter(
+        (product) => product.id !== action.payload?.id
+      )
+      state.products = [...products, action.payload]
     },
   },
 })
 
-export const { addProduct, getOneProduct, deleteProduct } =
+export const { addProduct, getOneProduct, deleteProduct, editProduct } =
   productsSlice.actions
 export default productsSlice.reducer

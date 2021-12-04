@@ -8,6 +8,7 @@ import {
   Button,
   Image,
   Box,
+  Tooltip,
 } from '@chakra-ui/react'
 import { useRef, useState } from 'react'
 import { useDispatch } from 'react-redux'
@@ -62,6 +63,13 @@ const AddProductModal = ({ isOpen, onClose }) => {
           id: uuidv4(),
         })
       )
+      onClose()
+      formik.values.name = ''
+      formik.values.company = ''
+      formik.values.price = ''
+      formik.values.numberOfProducts = '1'
+      formik.values.off = '0'
+      setImgURL('')
     },
     validationSchema: addProductSchema,
   })
@@ -85,18 +93,22 @@ const AddProductModal = ({ isOpen, onClose }) => {
               h="150px"
               justifyContent="center"
               alignItems="center"
-              border="2px dashed #3182CE"
+              border={imgURL ? '' : '2px dashed #3182CE'}
               borderRadius="8px"
               cursor="pointer"
               onClick={() => inputRef.current.click()}
               overflow="hidden"
             >
               {imgURL.length == 0 ? (
-                <Text fontSize="48px" color="#3182CE">
-                  +
-                </Text>
+                <Tooltip label="افزودن عکس">
+                  <Text fontSize="48px" color="#3182CE">
+                    +
+                  </Text>
+                </Tooltip>
               ) : (
-                <Image w="150px" h="150px" src={imgURL} objectFit="cover" />
+                <Tooltip label="تغییر عکس">
+                  <Image w="150px" h="150px" src={imgURL} objectFit="cover" />
+                </Tooltip>
               )}
             </Flex>
             <Input

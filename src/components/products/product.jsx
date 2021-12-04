@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { getOneProduct } from '../../store/features/productSlice'
 import DeleteProductModal from './deleteProductModal'
+import EditProductModal from './editProductModal'
 
 const Product = ({
   id,
@@ -24,6 +25,11 @@ const Product = ({
     isOpen: isDeleteOpen,
     onClose: onDeleteClose,
     onOpen: onDeleteOpen,
+  } = useDisclosure()
+  const {
+    isOpen: isEditOpen,
+    onClose: onEditClose,
+    onOpen: onEditOpen,
   } = useDisclosure()
 
   return (
@@ -77,6 +83,7 @@ const Product = ({
           cursor="pointer"
           minW="50px"
           as={Edit}
+          onClick={onEditOpen}
         />
         <Icon
           fontSize="20px"
@@ -107,6 +114,7 @@ const Product = ({
         onClose={onDeleteClose}
         id={id}
       />
+      <EditProductModal isOpen={isEditOpen} onClose={onEditClose} id={id} />
     </Flex>
   )
 }
