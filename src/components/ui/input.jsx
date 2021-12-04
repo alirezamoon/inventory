@@ -4,12 +4,10 @@ import {
   Input,
   InputGroup,
   InputRightElement,
-  Icon,
 } from '@chakra-ui/react'
 
 const MyInput = ({
   label,
-  //   disabled,
   errorText,
   isInvalid,
   placeholder,

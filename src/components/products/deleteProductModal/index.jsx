@@ -1,5 +1,5 @@
 import { Button } from '@chakra-ui/button'
-import { Flex, Heading, Text } from '@chakra-ui/layout'
+import { Flex, Text } from '@chakra-ui/layout'
 import { Modal, ModalContent, ModalOverlay } from '@chakra-ui/modal'
 import { useToast } from '@chakra-ui/react'
 import { useDispatch } from 'react-redux'

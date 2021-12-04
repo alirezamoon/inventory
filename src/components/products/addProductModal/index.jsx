@@ -28,17 +28,8 @@ const addProductSchema = Yup.object().shape({
 const AddProductModal = ({ isOpen, onClose }) => {
   const inputRef = useRef()
   const [number, setNumber] = useState(1)
-  const [img, setImg] = useState('')
   const [imgURL, setImgURL] = useState('')
   const dispatch = useDispatch()
-  const [newProduct, setNewProduct] = useState({
-    id: '',
-    name: '',
-    price: '',
-    company: '',
-    numberOfProducts: '',
-    off: '',
-  })
   const { v4: uuidv4 } = require('uuid')
   const toast = useToast()
   const formik = useFormik({
@@ -124,12 +115,7 @@ const AddProductModal = ({ isOpen, onClose }) => {
               d="none"
               ref={inputRef}
               onChange={(event) => {
-                setImg(event.target.files[0])
                 setImgURL(URL.createObjectURL(event.target.files[0]))
-                setNewProduct({
-                  ...newProduct,
-                  image: URL.createObjectURL(event.target.files[0]),
-                })
               }}
             />
             <Flex

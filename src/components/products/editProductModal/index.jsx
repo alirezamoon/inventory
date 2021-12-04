@@ -7,19 +7,15 @@ import {
   Input,
   Button,
   Image,
-  Box,
   Tooltip,
   useToast,
 } from '@chakra-ui/react'
 import { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {
-  addProduct,
   editProduct,
   getOneProduct,
 } from '../../../store/features/productSlice'
-import { useFormik } from 'formik'
-import * as Yup from 'yup'
 import MyInput from '../../ui/input'
 import MyNumberInput from '../../ui/numberInput'
 
@@ -29,7 +25,6 @@ const EditProductModal = ({ isOpen, onClose, id }) => {
     dispatch(getOneProduct(id))
   }, [isOpen])
   const product = useSelector((state) => state.products.product)
-  console.log(product)
   const { name, company, off, price, image, numberOfProducts } = product
   const [newProduct, setNewProduct] = useState({
     id: id,

@@ -5,21 +5,11 @@ import { Flex, Text } from '@chakra-ui/layout'
 import { Delete, Edit } from 'react-iconly'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { getOneProduct } from '../../store/features/productSlice'
 import DeleteProductModal from './deleteProductModal'
 import EditProductModal from './editProductModal'
 
-const Product = ({
-  id,
-  name,
-  price,
-  off,
-  company,
-  count,
-  numberOfProducts,
-}) => {
+const Product = ({ id, name, price, count, numberOfProducts }) => {
   const navigate = useNavigate()
-  // console.log(navigate)
   const dispatch = useDispatch()
   const {
     isOpen: isDeleteOpen,
@@ -102,7 +92,6 @@ const Product = ({
           fontSize={{ base: '12px', sm: '14', md: 'unset' }}
           _focus={{ outline: 0 }}
           onClick={() => {
-            // dispatch(getOneProduct(id))
             navigate(`product/${id}`)
           }}
         >

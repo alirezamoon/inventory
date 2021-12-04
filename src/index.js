@@ -4,7 +4,6 @@ import './index.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 import { ChakraProvider } from '@chakra-ui/react'
-import Layout from './components/hoc/layout'
 import { Provider } from 'react-redux'
 import { store } from './store/store'
 

@@ -1,5 +1,5 @@
 import { Button } from '@chakra-ui/button'
-import { Flex, Text } from '@chakra-ui/layout'
+import { Flex } from '@chakra-ui/layout'
 import { useDisclosure } from '@chakra-ui/react'
 import Products from '../products'
 import Search from './../search'

@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 import { useLocation } from 'react-router'
-import { parse } from 'uuid'
 import {
   editSingleProduct,
   getOneProduct,
