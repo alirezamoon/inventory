@@ -1,7 +1,7 @@
 import { Button } from '@chakra-ui/button'
 import { useDisclosure } from '@chakra-ui/hooks'
 import Icon from '@chakra-ui/icon'
-import { Flex } from '@chakra-ui/layout'
+import { Flex, Text } from '@chakra-ui/layout'
 import {
   Drawer,
   DrawerBody,
@@ -25,11 +25,9 @@ const Toolbar = () => {
       boxShadow="0 1px 5px #3182CE"
       zIndex="10"
     >
-      <Flex display={{ base: 'none', md: 'flex' }}>
-        <Button bgColor="#F7FAFC" ml="20px">
-          <Icon as={Buy} set="curved" fontSize="24px" />
-        </Button>
-      </Flex>
+      <Text color="#3182CE" ml="30px" fontWeight="bold">
+        INVENTORY
+      </Text>
       <Flex
         display={{ base: 'none', md: 'flex' }}
         alignSelf="end"

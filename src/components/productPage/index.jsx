@@ -107,7 +107,14 @@ const ProductPage = () => {
         alignSelf="center"
         alignItems="center"
       >
-        <Flex mr="20px">
+        <Flex
+          mr="20px"
+          bgColor="#F7FAFC"
+          borderRadius="10px"
+          h="100%"
+          alignItems="center"
+          px="10px"
+        >
           <Text>
             {newProduct.numberOfProducts == 0 ? '0' : priceWithOff * number}$
           </Text>

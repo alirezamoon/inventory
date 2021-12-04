@@ -6,7 +6,7 @@ export const products = [
     off: '2',
     company: 'Apple',
     numberOfProducts: '5',
-    image: '',
+    image: '/assets/images/1.jpg',
   },
   {
     id: '2',
@@ -15,7 +15,7 @@ export const products = [
     off: '2',
     company: 'Apple',
     numberOfProducts: '5',
-    image: '',
+    image: '/assets/images/2.jpg',
   },
   {
     id: '3',
@@ -24,7 +24,7 @@ export const products = [
     off: '0',
     company: 'Apple',
     numberOfProducts: '5',
-    image: '',
+    image: '/assets/images/3.jpg',
   },
   {
     id: '4',
@@ -33,16 +33,7 @@ export const products = [
     off: '5',
     company: 'Apple',
     numberOfProducts: '5',
-    image: '',
-  },
-  {
-    id: '5',
-    name: 'S 20',
-    price: '3000',
-    off: '0',
-    company: 'Samsung',
-    numberOfProducts: '5',
-    image: '',
+    image: '/assets/images/4.jpg',
   },
   {
     id: '6',
@@ -51,7 +42,7 @@ export const products = [
     off: '3',
     company: 'Xiaomi',
     numberOfProducts: '5',
-    image: '',
+    image: '/assets/images/5.jpg',
   },
   {
     id: '7',
@@ -60,7 +51,7 @@ export const products = [
     off: '0',
     company: 'Xiaomi',
     numberOfProducts: '5',
-    image: '',
+    image: '/assets/images/7.jpg',
   },
   {
     id: '8',
@@ -69,16 +60,7 @@ export const products = [
     off: '10',
     company: 'Huawei',
     numberOfProducts: '5',
-    image: '',
-  },
-  {
-    id: '9',
-    name: 'S 10+',
-    price: '2400',
-    off: '15',
-    company: 'Samsung',
-    numberOfProducts: '5',
-    image: '',
+    image: '/assets/images/8.jpg',
   },
   {
     id: '10',
@@ -87,6 +69,6 @@ export const products = [
     off: '15',
     company: 'Huawei',
     numberOfProducts: '5',
-    image: '',
+    image: '/assets/images/9.jpg',
   },
 ]

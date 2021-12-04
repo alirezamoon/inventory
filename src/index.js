@@ -12,12 +12,6 @@ ReactDOM.render(
   <React.StrictMode>
     <ChakraProvider>
       <Provider store={store}>
-        <link
-          href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v29.1.0/dist/font-face.css"
-          rel="stylesheet"
-          type="text/css"
-        />
-
         <App />
       </Provider>
     </ChakraProvider>

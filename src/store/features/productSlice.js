@@ -4,6 +4,8 @@ import { products } from '../../data'
 const initialState = {
   products: products,
   product: {},
+  searchedProducts: [],
+  searchTerm: '',
 }
 
 export const productsSlice = createSlice({
@@ -32,6 +34,14 @@ export const productsSlice = createSlice({
     editSingleProduct: (state, action) => {
       state.product = action.payload
     },
+    searchedProducts: (state, action) => {
+      state.searchedProducts = state.products.filter((product) =>
+        product.name.toLowerCase().includes(action.payload?.toLowerCase())
+      )
+    },
+    changeSearchTerm: (state, action) => {
+      state.searchTerm = action.payload
+    },
   },
 })
 
@@ -41,5 +51,7 @@ export const {
   deleteProduct,
   editProduct,
   editSingleProduct,
+  searchedProducts,
+  changeSearchTerm,
 } = productsSlice.actions
 export default productsSlice.reducer

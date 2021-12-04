@@ -3,11 +3,11 @@ import Toolbar from '../toolbar'
 
 const Layout = ({ children }) => {
   return (
-    <Flex flexDir="column">
+    <Flex flexDir="column" minH="100vh">
       <Toolbar />
       <Flex
         as="main"
-        minH="100vh"
+        minH="100%"
         w="100%"
         bgColor="#F7FAFC"
         justifyContent="center"

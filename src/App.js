@@ -6,6 +6,7 @@ import Home from './components/home'
 import Layout from './components/hoc/layout'
 import { useSelector } from 'react-redux'
 import ProductPage from './components/productPage'
+import About from './components/about'
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/about" element={<Home />} />
+            <Route path="/about" element={<About />} />
             <Route path="/product" element={<ProductPage />}>
               <Route path=":productId" element={<ProductPage />} />
             </Route>
