@@ -91,7 +91,11 @@ const AddProductModal = ({ isOpen, onClose }) => {
             formik.handleSubmit()
           }}
         >
-          <Flex justifyContent="space-between">
+          <Flex
+            alignItems={{ base: 'center', md: 'unset' }}
+            justifyContent="space-between"
+            flexDir={{ base: 'column', md: 'row' }}
+          >
             <Flex
               w="150px"
               h="150px"
@@ -128,7 +132,11 @@ const AddProductModal = ({ isOpen, onClose }) => {
                 })
               }}
             />
-            <Flex flexDir="column" justifyContent="space-around">
+            <Flex
+              flexDir="column"
+              justifyContent="space-around"
+              mt={{ base: '20px', md: '0' }}
+            >
               <MyInput
                 name="name"
                 label="نام"
@@ -144,10 +152,17 @@ const AddProductModal = ({ isOpen, onClose }) => {
                 isInvalid={formik.errors.company ? true : false}
                 value={formik.values.company}
                 onChange={(e) => formik.handleChange(e)}
+                mt={{ base: '20px', md: '0' }}
               />
             </Flex>
           </Flex>
-          <Flex flexDir="row-reverse" mt="20px">
+          <Flex
+            flexDir={{ base: 'column', md: 'row-reverse' }}
+            mt="20px"
+            maxW={{ base: '150px', md: 'unset' }}
+            justifyContent="center"
+            alignSelf="center"
+          >
             <MyInput
               name="price"
               label="قیمت"
@@ -158,6 +173,8 @@ const AddProductModal = ({ isOpen, onClose }) => {
               ltr
               hasIcon
               icon="$"
+              w="100%"
+              mt={{ base: '10px', md: '0' }}
             />
 
             <MyInput
@@ -171,12 +188,16 @@ const AddProductModal = ({ isOpen, onClose }) => {
               mr="15px"
               hasIcon
               icon="%"
+              w="100%"
+              mt={{ base: '10px', md: '0' }}
             />
             <MyNumberInput
               value={number}
               setValue={setNumber}
               label="تعداد"
               mr="15px"
+              w="100%"
+              mt={{ base: '10px', md: '0' }}
             />
           </Flex>
           <Button colorScheme="blue" mt="20px" type="submit">

@@ -24,7 +24,7 @@ const MyNumberInput = ({
         pos="absolute"
         zIndex="1000"
         top="-8px"
-        right="45px"
+        left="12px"
         bgColor="white"
       >
         <Text

@@ -69,7 +69,11 @@ const EditProductModal = ({ isOpen, onClose, id }) => {
       <ModalOverlay />
       <ModalContent borderRadius="10px">
         <Flex as="form" flexDir="column" p="20px">
-          <Flex justifyContent="space-between">
+          <Flex
+            alignItems={{ base: 'center', md: 'unset' }}
+            justifyContent="space-between"
+            flexDir={{ base: 'column', md: 'row' }}
+          >
             <Flex
               w="150px"
               h="150px"
@@ -109,7 +113,11 @@ const EditProductModal = ({ isOpen, onClose, id }) => {
                 })
               }}
             />
-            <Flex flexDir="column" justifyContent="space-around">
+            <Flex
+              flexDir="column"
+              justifyContent="space-around"
+              mt={{ base: '20px', md: '0' }}
+            >
               <MyInput
                 name="name"
                 label="نام"
@@ -127,10 +135,17 @@ const EditProductModal = ({ isOpen, onClose, id }) => {
                   setNewProduct({ ...newProduct, company: e.target.value })
                 }
                 ltr
+                mt={{ base: '20px', md: '0' }}
               />
             </Flex>
           </Flex>
-          <Flex flexDir="row-reverse" mt="20px">
+          <Flex
+            flexDir={{ base: 'column', md: 'row-reverse' }}
+            mt="20px"
+            maxW={{ base: '150px', md: 'unset' }}
+            justifyContent="center"
+            alignSelf="center"
+          >
             <MyInput
               name="price"
               label="قیمت"
@@ -141,6 +156,8 @@ const EditProductModal = ({ isOpen, onClose, id }) => {
               ltr
               hasIcon
               icon="$"
+              mt={{ base: '10px', md: '0' }}
+              w="100%"
             />
 
             <MyInput
@@ -151,9 +168,11 @@ const EditProductModal = ({ isOpen, onClose, id }) => {
                 setNewProduct({ ...newProduct, off: e.target.value })
               }
               ltr
+              w="100%"
               mr="15px"
               hasIcon
               icon="%"
+              mt={{ base: '10px', md: '0' }}
             />
             <MyNumberInput
               value={number}
@@ -161,6 +180,8 @@ const EditProductModal = ({ isOpen, onClose, id }) => {
               label="تعداد"
               mr="15px"
               defaultValue={number}
+              mt={{ base: '10px', md: '0' }}
+              w="100%"
             />
           </Flex>
           <Button
