@@ -60,22 +60,18 @@ const Toolbar = () => {
         <DrawerOverlay />
         <DrawerContent>
           <DrawerBody>
-            <Flex flexDir="column" h="100%">
-              <Flex
-                alignSelf="end"
-                justifyContent="end"
-                h="100px"
-                alignItems="center"
-                w="100%"
-                flexDir="column"
-                onClick={onClose}
-              >
-                <NavigationItem text={home} to="/" />
-                <NavigationItem text={aboutUs} to="/about" />
-              </Flex>
-              <Button bgColor="#F7FAFC" mt="50px" onClick={onClose}>
-                <Icon as={Buy} set="curved" fontSize="24px" />
-              </Button>
+            <Flex
+              alignSelf="end"
+              justifyContent="end"
+              h="100px"
+              alignItems="center"
+              w="100%"
+              flexDir="column"
+              onClick={onClose}
+              mt={{ base: '30px', md: '0' }}
+            >
+              <NavigationItem text={home} to="/" />
+              <NavigationItem text={aboutUs} to="/about" />
             </Flex>
           </DrawerBody>
         </DrawerContent>

@@ -22,7 +22,7 @@ const NavigationItem = ({ text, to }) => {
       cursor="pointer"
       borderBottom={{ base: '0', md: activeItem ? '5px solid #3182CE' : '0' }}
       bgColor={{
-        base: activeItem ? '#3182CE' : '#fff',
+        base: activeItem ? '#3182CE' : '#F7FAFC',
         md: activeItem ? '#F7FAFC' : '#fff',
       }}
       mb={{ base: '5px', md: '0' }}
