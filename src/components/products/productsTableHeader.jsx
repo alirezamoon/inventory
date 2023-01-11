@@ -10,7 +10,7 @@ const ProdutctsTableHeader = () => {
       alignItems="center"
       color="white"
       borderTopRadius="8px"
-      fontSize={{ base: "12px", sm: "14", md: "unset" }}
+      fontSize={{ base: "12px", sm: "14" }}
     >
       <Text minW={{ base: "30px", md: "50px" }} pr="10px" whiteSpace="nowrap">
         ردیف

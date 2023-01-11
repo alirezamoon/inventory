@@ -35,6 +35,8 @@ const Product = ({ id, name, price, count, numberOfProducts }) => {
         overflow="hidden"
         textOverflow="ellipsis"
         whiteSpace="nowrap"
+        color="blue.500"
+        fontSize={14}
       >
         {count + 1}
       </Text>

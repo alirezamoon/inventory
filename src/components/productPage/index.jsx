@@ -106,12 +106,13 @@ const ProductPage = () => {
         mt={{ base: "50px", md: "100px" }}
         alignSelf="center"
         alignItems="center"
+        flexDir={{ base: "column", sm: "row" }}
+        gap="20px"
       >
         <Flex
-          mr="20px"
-          bgColor="#F7FAFC"
+          // bgColor="#F7FAFC"
           borderRadius="10px"
-          h="100%"
+          h={{ base: "48px", sm: "100%" }}
           alignItems="center"
           px="10px"
         >
