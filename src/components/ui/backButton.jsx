@@ -10,7 +10,7 @@ const BackButton = () => {
       position="absolute"
       top="0"
       transform="translateY(-50%)"
-      bgColor="transparent"
+      bgColor="#fff"
       boxShadow="0 0 5px #eee"
       colorScheme="blue"
       variant="outline"
