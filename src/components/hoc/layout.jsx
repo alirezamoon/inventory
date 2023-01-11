@@ -1,18 +1,11 @@
-import { Flex } from '@chakra-ui/layout'
-import Toolbar from '../toolbar'
+import { Flex } from "@chakra-ui/layout"
+import Toolbar from "../toolbar"
 
 const Layout = ({ children }) => {
   return (
-    <Flex flexDir="column" minH="100vh">
+    <Flex flexDir="column" minH="100vh" bgColor="#F7FAFC">
       <Toolbar />
-      <Flex
-        as="main"
-        minH="100%"
-        w="100%"
-        bgColor="#F7FAFC"
-        justifyContent="center"
-        py="50px"
-      >
+      <Flex as="main" minH="100%" w="100%" justifyContent="center" py="50px">
         <Flex
           maxW="1200px"
           w="100%"
