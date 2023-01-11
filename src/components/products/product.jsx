@@ -1,12 +1,12 @@
-import { Button } from '@chakra-ui/button'
-import { useDisclosure } from '@chakra-ui/hooks'
-import Icon from '@chakra-ui/icon'
-import { Flex, Text } from '@chakra-ui/layout'
-import { Delete, Edit } from 'react-iconly'
-import { useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
-import DeleteProductModal from './deleteProductModal'
-import EditProductModal from './editProductModal'
+import { Button } from "@chakra-ui/button"
+import { useDisclosure } from "@chakra-ui/hooks"
+import Icon from "@chakra-ui/icon"
+import { Flex, Text } from "@chakra-ui/layout"
+import { Delete, Edit } from "react-iconly"
+import { useDispatch } from "react-redux"
+import { useNavigate } from "react-router-dom"
+import DeleteProductModal from "./deleteProductModal"
+import EditProductModal from "./editProductModal"
 
 const Product = ({ id, name, price, count, numberOfProducts }) => {
   const navigate = useNavigate()
@@ -25,13 +25,13 @@ const Product = ({ id, name, price, count, numberOfProducts }) => {
   return (
     <Flex
       flexDir="row-reverse"
-      bgColor={count % 2 === 1 ? '#F7FAFC' : '#fff'}
+      bgColor={count % 2 === 1 ? "#F7FAFC" : "#fff"}
       justifyContent="end"
       alignItems="center"
       h="50px"
     >
       <Text
-        minW={{ base: '30px', md: '50px' }}
+        minW={{ base: "30px", md: "50px" }}
         overflow="hidden"
         textOverflow="ellipsis"
         whiteSpace="nowrap"
@@ -53,7 +53,6 @@ const Product = ({ id, name, price, count, numberOfProducts }) => {
         overflow="hidden"
         textOverflow="ellipsis"
         whiteSpace="nowrap"
-        d={{ base: 'none', md: 'block' }}
       >
         {numberOfProducts}
       </Text>
@@ -62,7 +61,6 @@ const Product = ({ id, name, price, count, numberOfProducts }) => {
         overflow="hidden"
         textOverflow="ellipsis"
         whiteSpace="nowrap"
-        d={{ base: 'none', md: 'block' }}
       >
         {price} $
       </Text>
@@ -89,7 +87,7 @@ const Product = ({ id, name, price, count, numberOfProducts }) => {
           maxW="150px"
           w="100%"
           color="#3182CE"
-          fontSize={{ base: '12px', sm: '14', md: 'unset' }}
+          fontSize={{ base: "12px", sm: "14", md: "unset" }}
           _focus={{ outline: 0 }}
           onClick={() => {
             navigate(`product/${id}`)

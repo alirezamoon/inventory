@@ -11,7 +11,6 @@ const Home = () => {
     <Flex flexDir="column">
       <Flex
         justifyContent="space-between"
-        w="100%"
         alignItems="center"
         flexDir={{ base: "column", md: "row" }}
       >

@@ -18,12 +18,8 @@ const ProdutctsTableHeader = () => {
       <Text minW="100px" w="150px">
         نام
       </Text>
-      <Text d={{ base: "none", md: "block" }} minW="50px">
-        تعداد
-      </Text>
-      <Text d={{ base: "none", md: "block" }} minW="150px">
-        قیمت
-      </Text>
+      <Text minW="50px">تعداد</Text>
+      <Text minW="150px">قیمت</Text>
       <Flex flexGrow={1} flexDir="row-reverse" justifyContent="start">
         <Text minW="50px">ویرایش</Text>
         <Text minW="50px">حذف</Text>
