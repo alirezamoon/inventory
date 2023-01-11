@@ -1,18 +1,19 @@
-import { Flex, Text, Image, Button, useToast } from '@chakra-ui/react'
-import { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { useSelector } from 'react-redux'
-import { useLocation } from 'react-router'
+import { Flex, Text, Image, Button, useToast } from "@chakra-ui/react"
+import { useEffect, useState } from "react"
+import { useDispatch } from "react-redux"
+import { useSelector } from "react-redux"
+import { useLocation } from "react-router"
 import {
   editSingleProduct,
   getOneProduct,
-} from '../../store/features/productSlice'
-import MyNumberInput from '../ui/numberInput'
+} from "../../store/features/productSlice"
+import BackButton from "../ui/backButton"
+import MyNumberInput from "../ui/numberInput"
 
 const ProductPage = () => {
   const location = useLocation()
-  const id = location.pathname.split('/')[2]
-  const [number, setNumber] = useState('1')
+  const id = location.pathname.split("/")[2]
+  const [number, setNumber] = useState("1")
   const toast = useToast()
 
   const dispath = useDispatch()
@@ -45,19 +46,19 @@ const ProductPage = () => {
     })
   }, [product])
 
-  console.log(newProduct)
   return (
     <Flex flexDir="column">
+      <BackButton />
       <Flex
         justifyContent="center"
         alignItems="center"
-        flexDir={{ base: 'column-reverse', md: 'row' }}
+        flexDir={{ base: "column-reverse", md: "row" }}
       >
         <Flex
           flexDir="column"
           alignItems="end"
-          mr={{ base: '0', md: '100px' }}
-          mt={{ base: '50px', md: '0' }}
+          mr={{ base: "0", md: "100px" }}
+          mt={{ base: "50px", md: "0" }}
           justifyContent="space-evenly"
           bgColor="#F7FAFC"
           maxW="300px"
@@ -83,7 +84,7 @@ const ProductPage = () => {
             <Text textAlign="right">: قیمت</Text>
           </Flex>
           <Flex justifyContent="space-between" w="100%">
-            <Text w="100px">{off == 0 ? '-' : off + '%'}</Text>
+            <Text w="100px">{off == 0 ? "-" : off + "%"}</Text>
             <Text>: تخفیف</Text>
           </Flex>
           <Flex justifyContent="space-between" w="100%">
@@ -102,7 +103,7 @@ const ProductPage = () => {
         </Flex>
       </Flex>
       <Flex
-        mt={{ base: '50px', md: '100px' }}
+        mt={{ base: "50px", md: "100px" }}
         alignSelf="center"
         alignItems="center"
       >
@@ -115,7 +116,7 @@ const ProductPage = () => {
           px="10px"
         >
           <Text>
-            {newProduct.numberOfProducts == 0 ? '0' : priceWithOff * number}$
+            {newProduct.numberOfProducts == 0 ? "0" : priceWithOff * number}$
           </Text>
           <Text> : قیمت کل</Text>
         </Flex>
@@ -150,12 +151,12 @@ const ProductPage = () => {
           dispath(editSingleProduct(newProduct))
           dispath(getOneProduct(id))
           toast({
-            title: 'سفارش',
-            description: 'سفارش شما با موفقیت ارسال شد',
-            status: 'success',
+            title: "سفارش",
+            description: "سفارش شما با موفقیت ارسال شد",
+            status: "success",
             duration: 3000,
             isClosable: true,
-            position: 'bottom-right',
+            position: "bottom-right",
           })
         }}
       >

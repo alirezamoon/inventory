@@ -1,4 +1,4 @@
-import { Flex, Text } from '@chakra-ui/react'
+import { Flex, Text } from "@chakra-ui/react"
 
 const ProdutctsTableHeader = () => {
   return (
@@ -10,18 +10,18 @@ const ProdutctsTableHeader = () => {
       alignItems="center"
       color="white"
       borderTopRadius="8px"
-      fontSize={{ base: '12px', sm: '14', md: 'unset' }}
+      fontSize={{ base: "12px", sm: "14", md: "unset" }}
     >
-      <Text minW={{ base: '30px', md: '50px' }} pr="10px">
+      <Text minW={{ base: "30px", md: "50px" }} pr="10px" whiteSpace="nowrap">
         ردیف
       </Text>
       <Text minW="100px" w="150px">
         نام
       </Text>
-      <Text d={{ base: 'none', md: 'block' }} minW="50px">
+      <Text d={{ base: "none", md: "block" }} minW="50px">
         تعداد
       </Text>
-      <Text d={{ base: 'none', md: 'block' }} minW="150px">
+      <Text d={{ base: "none", md: "block" }} minW="150px">
         قیمت
       </Text>
       <Flex flexGrow={1} flexDir="row-reverse" justifyContent="start">

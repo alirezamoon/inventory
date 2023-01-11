@@ -14,6 +14,7 @@ const Layout = ({ children }) => {
           p="20px"
           boxShadow="0 0 5px #eee"
           flexDir="column"
+          position="relative"
         >
           {children}
         </Flex>
